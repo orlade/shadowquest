@@ -1,0 +1,77 @@
+
+ ********************************
+ * TODO LIST for OOSD PROJECT 2 *
+ ********************************
+
+ This is intended to be a list of features that can potentially be added to
+ Shadow Quest beyond the project requirements.
+ 
+**  Uncategorised  ** 
+
+----------------------
+**  Basic elements  **
+----------------------
+  * Melee weapons
+  - Ranged attacks
+  - Spells
+  - Animations
+  - Side quests
+  	o Deliver
+  	o Retrieve
+  	o Vanquish
+  	o Rescue
+  	o Arena
+  * Money drops
+  * Experience points and levels
+  * Character stats
+  - Rising damage / xp text (Borderlands)
+  - Traps
+  * Potions
+  - Damage types (elements)
+  - Status effects
+  - Super effectiveness
+  * Better damage algorithm + critical hits
+  - Random monster spawning
+  - Special monsters
+
+-------------------------
+**  Advanced elements  **
+-------------------------
+  - Mouse input and control
+  --> Pathfinding
+  - Party
+  * Larger, interactive inventory
+  * Random item drops
+  ^ Shops to buy/sell with money
+
+--------------------------
+**  Extension elements  **
+--------------------------
+  - New worlds
+  * Procedurally generated dungeons
+  
+  
+----------------------------
+**  Bonus Item Properties **
+----------------------------
+  + Damage
+  + Fire
+  + Cold
+  + Lightning
+  + Poison
+  + % Damage
+  + Defence rating
+  + HP
+  + Speed
+  + Energy
+  + HP regen
+  + Attack rating
+  + Item drop
+  + Gold drop
+  
+  
+THOUGHTS:
+	DK 24/9/09:
+	have melee attack, ranged attack, defence, armour, strength and power(weapon)
+	to hit, 2d6 + MAT vs def
+	to damage, difference of 2d6+P+S vs arm

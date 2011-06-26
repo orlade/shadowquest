@@ -56,12 +56,12 @@ public class MenuState extends BasicGameState
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		// Load the menu background
-		this.background = new Image("assets/menu/rock-bg.png");
+		this.background = new Image("assets/menu/rock-bg.jpg");
 		// Load the subtitle
 		// this.subtitle = new Image("assets/menu/subtitle.png");
 		// Load the info boxes
-		this.aboutBox = new Image("assets/menu/box-about.tga");
-		this.controlsBox = new Image("assets/menu/box-controls.tga");
+		this.aboutBox = new Image("assets/menu/box-about.png");
+		this.controlsBox = new Image("assets/menu/box-controls.png");
 
 		// Add the buttons to the list
 		buttons.add(new ButtonStart(30, 230));

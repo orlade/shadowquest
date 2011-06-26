@@ -200,8 +200,9 @@ public abstract class GameplayState extends BasicGameState
 			getInput().clearKeyPressedRecord();
 		}
 
-		// ALT to show item names
-		if (getInput().isKeyDown(Input.KEY_LALT) || getInput().isKeyDown(Input.KEY_RALT))
+		// SHIFT to show item names
+		// Changed from ALT to be more browser-friendly
+		if (getInput().isKeyDown(Input.KEY_LSHIFT) || getInput().isKeyDown(Input.KEY_RSHIFT))
 		{
 			setShowItemBars(true);
 		}

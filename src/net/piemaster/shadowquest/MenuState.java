@@ -55,6 +55,9 @@ public class MenuState extends BasicGameState
 	 */
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
+		// Set target frame rate here so it's set in applets too
+		gc.setTargetFrameRate(100);
+		
 		// Load the menu background
 		this.background = new Image("assets/menu/rock-bg.jpg");
 		// Load the subtitle

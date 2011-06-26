@@ -43,7 +43,7 @@ public class ShadowQuest extends StateBasedGame
 	public ShadowQuest() throws SlickException
 	{
 		super("Shadow Quest");
-
+		
 		this.addState(new MenuState(MENUSTATE));
 		this.addState(new GameplayStateLevelMain(GPSMAIN));
 		this.addState(new GameplayStateLevelDungeon(GPSDUNGEON));
@@ -65,7 +65,6 @@ public class ShadowQuest extends StateBasedGame
 		AppGameContainer app = new AppGameContainer(new ShadowQuest());
 		// setShowFPS(true), to show frames-per-second.
 		app.setShowFPS(true);
-		app.setTargetFrameRate(100);
 		app.setDisplayMode(SCREENWIDTH, SCREENHEIGHT, false);
 		app.start();
 	}

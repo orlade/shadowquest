@@ -11,14 +11,13 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
-import org.newdawn.slick.util.Log;
 
 /**
  * Main class for the Role-Playing Game engine. Handles initialisation, input
  * and rendering. Effectively acts as the GamePlayState, holding entities and
  * providing a facade.
  */
-public class RPG extends StateBasedGame
+public class ShadowQuest extends StateBasedGame
 {
 	/** Screen width (px) */
 	public static final int SCREENWIDTH = 800;
@@ -41,10 +40,9 @@ public class RPG extends StateBasedGame
 	 * 
 	 * @throws SlickException
 	 */
-	public RPG() throws SlickException
+	public ShadowQuest() throws SlickException
 	{
 		super("Shadow Quest");
-		Log.debug("Created some more");
 
 		this.addState(new MenuState(MENUSTATE));
 		this.addState(new GameplayStateLevelMain(GPSMAIN));
@@ -64,17 +62,12 @@ public class RPG extends StateBasedGame
 	 */
 	public static void main(String[] args) throws SlickException
 	{
-		Log.debug("Loading");
-		AppGameContainer app = new AppGameContainer(new RPG());
-		Log.debug("Created");
+		AppGameContainer app = new AppGameContainer(new ShadowQuest());
 		// setShowFPS(true), to show frames-per-second.
 		app.setShowFPS(true);
 		app.setTargetFrameRate(100);
-		Log.debug("setting display mode");
 		app.setDisplayMode(SCREENWIDTH, SCREENHEIGHT, false);
-		Log.debug("display mode set");
 		app.start();
-		Log.debug("started");
 	}
 
 	@Override

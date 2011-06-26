@@ -13,7 +13,6 @@ import net.piemaster.shadowquest.world.WorldItem;
 import net.piemaster.shadowquest.world.WorldObject;
 
 import org.newdawn.slick.Color;
-import org.newdawn.slick.Font;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -46,8 +45,9 @@ public abstract class GameplayState extends BasicGameState
 	/** The in-game GUI */
 	private static GUI gui;
 
-	/** The font used by the floating health bar */
-	protected static Font labelFont = null;
+//	/** The font used by the floating health bar */
+//	// Removed since loading fonts breaks applets
+//	protected static Font labelFont = null;
 	/** Determines whether item bars will be shown above items */
 	protected boolean showItemBars = false;
 	/** Determines whether the inventory panel should be rendered */
@@ -82,11 +82,12 @@ public abstract class GameplayState extends BasicGameState
 		gui = new GUI(player);
 
 		// Initialise the camera on the player's position
-		cameraX = player.getX() - RPG.SCREENWIDTH / 2;
-		cameraY = player.getY() - RPG.SCREENHEIGHT / 2;
+		cameraX = player.getX() - ShadowQuest.SCREENWIDTH / 2;
+		cameraY = player.getY() - ShadowQuest.SCREENHEIGHT / 2;
 
 		// Create the DejaVu font
-		labelFont = FontLoader.loadFont("assets/DejaVuSans-Bold.ttf", 12);
+		// Removed since loading fonts breaks applets
+//		labelFont = FontLoader.loadFont("assets/DejaVuSans-Bold.ttf", 12);
 
 		// Load the font -- ISN'T RETAINED
 		// gc.getGraphics().setFont(labelFont);
@@ -115,9 +116,9 @@ public abstract class GameplayState extends BasicGameState
 		if (getInput().isKeyPressed(Input.KEY_ESCAPE))
 		{
 			// Save the current state to return to when closing menu
-			((MenuState) sbg.getState(RPG.MENUSTATE)).setLastState(this);
+			((MenuState) sbg.getState(ShadowQuest.MENUSTATE)).setLastState(this);
 			// Jump to the menu
-			sbg.enterState(RPG.MENUSTATE);
+			sbg.enterState(ShadowQuest.MENUSTATE);
 		}
 
 		if (isDevMode())
@@ -217,13 +218,13 @@ public abstract class GameplayState extends BasicGameState
 		// still centred
 		if (isRenderInvPanel())
 		{
-			cameraX = this.getPlayer().getX() - (RPG.SCREENWIDTH - GUI.INVPANELWIDTH) / 2;
+			cameraX = this.getPlayer().getX() - (ShadowQuest.SCREENWIDTH - GUI.INVPANELWIDTH) / 2;
 		}
 		else
 		{
-			cameraX = this.getPlayer().getX() - RPG.SCREENWIDTH / 2;
+			cameraX = this.getPlayer().getX() - ShadowQuest.SCREENWIDTH / 2;
 		}
-		cameraY = this.getPlayer().getY() - RPG.SCREENHEIGHT / 2;
+		cameraY = this.getPlayer().getY() - ShadowQuest.SCREENHEIGHT / 2;
 
 		// Lock the camera on the map if it's going off
 		forceCameraOnMap();
@@ -245,8 +246,9 @@ public abstract class GameplayState extends BasicGameState
 	 */
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException
 	{
-		// Font for drawing
-		gc.getGraphics().setFont(this.getLabelFont());
+//		// Font for drawing
+//		// Removed since loading fonts breaks applets
+//		gc.getGraphics().setFont(this.getLabelFont());
 
 		// First, render the map
 		getMap().render(g, getCameraX(), getCameraY());
@@ -337,15 +339,15 @@ public abstract class GameplayState extends BasicGameState
 	{
 		if (getCameraX() < 0)
 			cameraX = 0;
-		if (getCameraX() + RPG.SCREENWIDTH > this.getMap().getMapWidth())
-			cameraX = this.getMap().getMapWidth() - RPG.SCREENWIDTH;
+		if (getCameraX() + ShadowQuest.SCREENWIDTH > this.getMap().getMapWidth())
+			cameraX = this.getMap().getMapWidth() - ShadowQuest.SCREENWIDTH;
 
 		// If the camera is at the top or bottom edge, lock it to prevent a
 		// black bar
 		if (getCameraY() < 0)
 			cameraY = 0;
-		if (getCameraY() + RPG.SCREENHEIGHT > this.getMap().getMapHeight())
-			cameraY = this.getMap().getMapHeight() - RPG.SCREENHEIGHT;
+		if (getCameraY() + ShadowQuest.SCREENHEIGHT > this.getMap().getMapHeight())
+			cameraY = this.getMap().getMapHeight() - ShadowQuest.SCREENHEIGHT;
 	}
 
 	/**
@@ -360,9 +362,9 @@ public abstract class GameplayState extends BasicGameState
 	{
 
 		if (obj.getX() + obj.getAvatar().getWidth() / 2 > getCameraX()
-				&& obj.getX() - obj.getAvatar().getWidth() / 2 < getCameraX() + RPG.SCREENWIDTH
+				&& obj.getX() - obj.getAvatar().getWidth() / 2 < getCameraX() + ShadowQuest.SCREENWIDTH
 				&& obj.getY() + obj.getAvatar().getHeight() / 2 > getCameraY()
-				&& obj.getY() - obj.getAvatar().getHeight() / 2 < getCameraY() + RPG.SCREENHEIGHT)
+				&& obj.getY() - obj.getAvatar().getHeight() / 2 < getCameraY() + ShadowQuest.SCREENHEIGHT)
 		{
 			return true;
 		}
@@ -481,8 +483,8 @@ public abstract class GameplayState extends BasicGameState
 			}
 		}
 
-		GameplayState.setCameraX(fs.getPlayer().getX() - RPG.SCREENWIDTH / 2);
-		GameplayState.setCameraY(fs.getPlayer().getY() - RPG.SCREENHEIGHT / 2);
+		GameplayState.setCameraX(fs.getPlayer().getX() - ShadowQuest.SCREENWIDTH / 2);
+		GameplayState.setCameraY(fs.getPlayer().getY() - ShadowQuest.SCREENHEIGHT / 2);
 		fs.forceCameraOnMap();
 
 		// Set the exit just passed through as the player's last
@@ -639,13 +641,13 @@ public abstract class GameplayState extends BasicGameState
 		this.map = map;
 	}
 
-	/**
-	 * @return the labelFont
-	 */
-	public Font getLabelFont()
-	{
-		return labelFont;
-	}
+//	/**
+//	 * @return the labelFont
+//	 */
+//	public Font getLabelFont()
+//	{
+//		return labelFont;
+//	}
 
 	/**
 	 * @return the showItemBars

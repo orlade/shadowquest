@@ -8,7 +8,7 @@ import java.util.EnumMap;
 
 import net.piemaster.shadowquest.GameplayState;
 import net.piemaster.shadowquest.Item;
-import net.piemaster.shadowquest.RPG;
+import net.piemaster.shadowquest.ShadowQuest;
 import net.piemaster.shadowquest.character.Bonus;
 import net.piemaster.shadowquest.character.Player;
 import net.piemaster.shadowquest.character.Unit;
@@ -105,7 +105,7 @@ public abstract class Monster extends Unit
 			double newX = getX() + dx;
 			double newY = getY() + dy;
 
-			if (gps.getID() != RPG.GPSMAIN || !((WorldMap) gps.getMap()).isInTown(newX, newY))
+			if (gps.getID() != ShadowQuest.GPSMAIN || !((WorldMap) gps.getMap()).isInTown(newX, newY))
 			{
 				this.move(newX, newY, gps);
 			}

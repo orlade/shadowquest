@@ -70,7 +70,7 @@ public class GameplayStateLevelMain extends GameplayState
 		this.setMap(new WorldMap("assets/map.tmx", "assets"));
 		this.getMap().setExit(
 				new ExitZone(13.0 * getMap().getTileWidth(), 6.0 * getMap().getTileHeight(),
-						getMap().getTileWidth() * 2, getMap().getTileHeight() * 2, RPG.GPSDUNGEON));
+						getMap().getTileWidth() * 2, getMap().getTileHeight() * 2, ShadowQuest.GPSDUNGEON));
 
 		// Add some villagers
 		initVillagers();

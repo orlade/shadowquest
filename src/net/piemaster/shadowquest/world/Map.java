@@ -2,7 +2,7 @@ package net.piemaster.shadowquest.world;
 
 import java.io.InputStream;
 
-import net.piemaster.shadowquest.RPG;
+import net.piemaster.shadowquest.ShadowQuest;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
@@ -132,8 +132,8 @@ public abstract class Map
 		int tileIndexY = (int) (cameraY / tileHeight);
 
 		// Calculate how many tiles need to be rendered from the topleftmost
-		int visX = (RPG.SCREENWIDTH - tileOffsetX) / tileWidth + 1;
-		int visY = (RPG.SCREENHEIGHT - tileOffsetY) / tileHeight + 1;
+		int visX = (ShadowQuest.SCREENWIDTH - tileOffsetX) / tileWidth + 1;
+		int visY = (ShadowQuest.SCREENHEIGHT - tileOffsetY) / tileHeight + 1;
 
 		// Render the map at the calculated position
 		this.getMap().render(tileOffsetX, tileOffsetY, tileIndexX, tileIndexY, visX, visY);

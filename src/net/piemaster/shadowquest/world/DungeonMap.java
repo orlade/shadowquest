@@ -2,7 +2,7 @@ package net.piemaster.shadowquest.world;
 
 import java.io.InputStream;
 
-import net.piemaster.shadowquest.RPG;
+import net.piemaster.shadowquest.ShadowQuest;
 
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.tiled.TiledMap;
@@ -58,7 +58,7 @@ public class DungeonMap extends Map
 		// this.entranceX = entranceX;
 		// this.entranceY = entranceY;
 		this.entrance = new ExitZone(entranceX, entranceY, getTileWidth(), getTileHeight(),
-				RPG.GPSMAIN);
+				ShadowQuest.GPSMAIN);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class DungeonMap extends Map
 		// this.entranceX = entranceX;
 		// this.entranceY = entranceY;
 		this.entrance = new ExitZone(entranceX, entranceY, getTileWidth(), getTileHeight(),
-				RPG.GPSMAIN);
+				ShadowQuest.GPSMAIN);
 		// this.getExits().add( new ExitZone(entranceX, entranceY,
 		// getTileWidth(), getTileHeight(), RPG.GPSMAIN));
 	}

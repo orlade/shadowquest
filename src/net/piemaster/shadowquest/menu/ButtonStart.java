@@ -1,7 +1,7 @@
 package net.piemaster.shadowquest.menu;
 
 import net.piemaster.shadowquest.MenuState;
-import net.piemaster.shadowquest.RPG;
+import net.piemaster.shadowquest.ShadowQuest;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -28,7 +28,7 @@ public class ButtonStart extends Button
 	 */
 	public void action(GameContainer gc, StateBasedGame sbg, MenuState ms)
 	{
-		sbg.enterState(RPG.GPSMAIN, new FadeOutTransition(Color.black), new FadeInTransition(
+		sbg.enterState(ShadowQuest.GPSMAIN, new FadeOutTransition(Color.black), new FadeInTransition(
 				Color.black));
 	}
 

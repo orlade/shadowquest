@@ -11,7 +11,7 @@ import java.util.EnumMap;
 import net.piemaster.shadowquest.GUI;
 import net.piemaster.shadowquest.GameplayState;
 import net.piemaster.shadowquest.Item;
-import net.piemaster.shadowquest.RPG;
+import net.piemaster.shadowquest.ShadowQuest;
 import net.piemaster.shadowquest.character.monster.Monster;
 import net.piemaster.shadowquest.inventory.InventoryAccessory;
 import net.piemaster.shadowquest.inventory.InventoryArmour;
@@ -569,9 +569,9 @@ public class Player extends Unit
 		this.setLastExit(null);
 
 		// Change level back to the World Map
-		if (gps.getID() != RPG.GPSMAIN)
+		if (gps.getID() != ShadowQuest.GPSMAIN)
 		{
-			gps.changeLevel(RPG.GPSMAIN);
+			gps.changeLevel(ShadowQuest.GPSMAIN);
 			// Respawning handled in changeLevel
 		}
 		// If already on world map, just reset to town

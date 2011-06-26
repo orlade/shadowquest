@@ -55,7 +55,7 @@ public class GameplayStateLevelDungeon extends GameplayState
 		// TODO: Fix it so maps can be generated with uneven sides and not fail
 		try
 		{
-			if (this.getID() < RPG.GPSDUNGEON5)
+			if (this.getID() < ShadowQuest.GPSDUNGEON5)
 				this.setMap(MapFactory.generateCave(size, size, true));
 			else
 				this.setMap(MapFactory.generateCave(size, size, false));

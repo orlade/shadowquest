@@ -114,17 +114,17 @@ public class GUI
 		float xp_percent; // Player's xp, as a percentage to next level
 
 		// Panel background image
-		this.panel.draw(0, RPG.SCREENHEIGHT - PANELHEIGHT);
+		this.panel.draw(0, ShadowQuest.SCREENHEIGHT - PANELHEIGHT);
 
 		// Display the player's health
 		text_x = 15;
-		text_y = RPG.SCREENHEIGHT - PANELHEIGHT + 15;
+		text_y = ShadowQuest.SCREENHEIGHT - PANELHEIGHT + 15;
 		g.setColor(colourLabel);
 		g.drawString("Health:", text_x, text_y);
 		text = Math.max(0, player.getHealth()) + "/" + player.getMaxHealth();
 
 		bar_x = 90;
-		bar_y = RPG.SCREENHEIGHT - PANELHEIGHT + 13;
+		bar_y = ShadowQuest.SCREENHEIGHT - PANELHEIGHT + 13;
 		bar_width = 90;
 		bar_height = 20;
 		health_percent = (float) Math.max(0, player.getHealth()) / player.getMaxHealth();
@@ -173,13 +173,13 @@ public class GUI
 
 		// Display the player's health
 		text_x = 15;
-		text_y = RPG.SCREENHEIGHT - PANELHEIGHT + 39;
+		text_y = ShadowQuest.SCREENHEIGHT - PANELHEIGHT + 39;
 		g.setColor(colourLabel);
 		g.drawString("Energy:", text_x, text_y);
 		text = player.getEnergy() + "/" + player.getMaxEnergy();
 
 		bar_x = 90;
-		bar_y = RPG.SCREENHEIGHT - PANELHEIGHT + 37;
+		bar_y = ShadowQuest.SCREENHEIGHT - PANELHEIGHT + 37;
 		bar_width = 90;
 		bar_height = 20;
 		energy_percent = (player.getEnergy() / player.getMaxEnergy());
@@ -234,13 +234,13 @@ public class GUI
 	public void renderInventoryPanel(Graphics g)
 	{
 		// Declare variables
-		float initInvX = RPG.SCREENWIDTH - INVPANELWIDTH + 13;
+		float initInvX = ShadowQuest.SCREENWIDTH - INVPANELWIDTH + 13;
 		float initInvY = 149;
 		float initEquipX = initInvX + 6;
 		float initEquipY = 10;
 
 		// Draw the Inventory Panel
-		this.invPanel.draw(RPG.SCREENWIDTH - INVPANELWIDTH, 0);
+		this.invPanel.draw(ShadowQuest.SCREENWIDTH - INVPANELWIDTH, 0);
 
 		// Display the player's inventory
 		int i = 0;

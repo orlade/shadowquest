@@ -13,10 +13,9 @@
 package net.piemaster.shadowquest.mapgen;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.io.Writer;
 import java.util.zip.GZIPOutputStream;
 
@@ -24,27 +23,47 @@ public class XMLMapWriter
 {
 	private static final int LAST_BYTE = 0x000000FF;
 
+//	/**
+//	 * Saves a map to an XML file.
+//	 * 
+//	 * @param map
+//	 *            The map to write
+//	 * @param filename
+//	 *            The filename of the map file
+//	 */
+//	public static void writeMap(RawMap map, String filename) throws Exception
+//	{
+//		OutputStream os = new FileOutputStream(filename);
+//		Writer writer = new OutputStreamWriter(os);
+//		XMLWriter xmlWriter = new XMLWriter(writer);
+//
+//		xmlWriter.startDocument();
+//		writeMap(map, xmlWriter);
+//		xmlWriter.endDocument();
+//
+//		writer.flush();
+//	}
+
 	/**
-	 * Saves a map to an XML file.
+	 * Converts the given raw map to an XML string.
 	 * 
 	 * @param map
-	 *            The map to write
-	 * @param filename
-	 *            The filename of the map file
+	 *            The map to convert
 	 */
-	public static void writeMap(RawMap map, String filename) throws Exception
+	public static String mapToString(RawMap map) throws Exception
 	{
-		OutputStream os = new FileOutputStream(filename);
-		Writer writer = new OutputStreamWriter(os);
+		Writer writer = new StringWriter();
 		XMLWriter xmlWriter = new XMLWriter(writer);
 
 		xmlWriter.startDocument();
 		writeMap(map, xmlWriter);
 		xmlWriter.endDocument();
-
+		
+		String mapString = writer.toString();
 		writer.flush();
+		return mapString;
 	}
-
+	
 	/**
 	 * Writes a given map to a .tmx file (TileD XML data file) to be read in by
 	 * Slick
@@ -115,7 +134,7 @@ public class XMLMapWriter
 		w.writeAttribute("name", "Layer 0");
 		w.writeAttribute("width", map.getWidth());
 		w.writeAttribute("height", map.getHeight());
-
+		
 		// Write the data element
 		w.startElement("data");
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();

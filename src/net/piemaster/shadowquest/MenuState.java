@@ -16,6 +16,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.util.Log;
 
 public class MenuState extends BasicGameState
 {
@@ -55,14 +56,18 @@ public class MenuState extends BasicGameState
 	 */
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
+		Log.debug("initting menu");
 		// Load the menu background
+		Log.debug("loading bg");
 		this.background = new Image("assets/menu/rock-bg.png");
 		// Load the subtitle
 		// this.subtitle = new Image("assets/menu/subtitle.png");
 		// Load the info boxes
+		Log.debug("loading buttons");
 		this.aboutBox = new Image("assets/menu/box-about.tga");
 		this.controlsBox = new Image("assets/menu/box-controls.tga");
 
+		Log.debug("loaded buttons");
 		// Add the buttons to the list
 		buttons.add(new ButtonStart(30, 230));
 

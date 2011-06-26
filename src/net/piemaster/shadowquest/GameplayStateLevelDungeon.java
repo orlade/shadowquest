@@ -82,11 +82,11 @@ public class GameplayStateLevelDungeon extends GameplayState
 		// A number giving a general scale of the map size
 		double mapSize = Math.sqrt((this.getMap().getMapWidth() / this.getMap().getTileWidth())
 				* (this.getMap().getMapHeight() / this.getMap().getTileHeight()));
-		System.out.println("mapsize=" + mapSize + ", [" + this.getMap().getMapWidth() + ", "
-				+ this.getMap().getMapHeight() + "]");
+//		System.out.println("mapsize=" + mapSize + ", [" + this.getMap().getMapWidth() + ", "
+//				+ this.getMap().getMapHeight() + "]");
 		// num = mapSize +/- 1/8*mapSize
 		int numMonsters = (int) (mapSize / 2 + Math.random() * (mapSize / 4) - mapSize / 8);
-		System.out.println("Generating " + numMonsters + " monsters...");
+//		System.out.println("Generating " + numMonsters + " monsters...");
 
 		for (int i = 0; i < numMonsters; i++)
 		{

@@ -1,5 +1,7 @@
 package net.piemaster.shadowquest.world;
 
+import java.io.InputStream;
+
 import net.piemaster.shadowquest.RPG;
 
 import org.newdawn.slick.SlickException;
@@ -75,7 +77,6 @@ public class DungeonMap extends Map
 	 * @param exitY
 	 *            The vertical tile index of the exit
 	 * @throws SlickException
-	 * @throws SlickException
 	 */
 	public DungeonMap(String mapFile, String mapFolder, int entranceX, int entranceY, int exitX,
 			int exitY) throws SlickException
@@ -88,6 +89,22 @@ public class DungeonMap extends Map
 		// this.entranceY = entranceY;
 		// this.exitX = exitX;
 		// this.exitY = exitY;
+		this.entrance = new ExitZone(entranceX, entranceY, getTileWidth(), getTileHeight(), -2);
+		this.exit = new ExitZone(exitX, exitY, getTileWidth(), getTileHeight(), -1);
+	}
+
+	/**
+	 * Create a dungeon map with an entrance, given an input stream.
+	 * @throws SlickException
+	 */
+	public DungeonMap(InputStream mapStream, int entranceX, int entranceY, int exitX,
+			int exitY) throws SlickException
+	{
+		// Create the map normally
+		
+		super(mapStream, "assets");
+
+		// Save the entrance and exit indexes
 		this.entrance = new ExitZone(entranceX, entranceY, getTileWidth(), getTileHeight(), -2);
 		this.exit = new ExitZone(exitX, exitY, getTileWidth(), getTileHeight(), -1);
 	}

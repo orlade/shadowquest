@@ -1,5 +1,7 @@
 package net.piemaster.shadowquest.world;
 
+import java.io.InputStream;
+
 import net.piemaster.shadowquest.RPG;
 
 import org.newdawn.slick.Color;
@@ -51,12 +53,22 @@ public abstract class Map
 	{
 		// Set up the map details
 		this.map = new TiledMap(mapFile, mapFolder);
-
-		this.mapHeight = this.map.getWidth() * this.tileWidth;
-		this.mapWidth = this.map.getHeight() * this.tileHeight;
-
-		// Build a collision map from the tilemap's "block" property
-		this.buildCollisionMap();
+		initMap();
+	}
+	
+	/**
+	 * The TiledMap object representing the world map
+	 * 
+	 * @param mapFile
+	 *            The filepath to the .tmx map file
+	 * @param mapFolder
+	 *            The folder containing the map information
+	 * @throws SlickException
+	 */
+	public Map(InputStream mapStream, String mapFolder) throws SlickException
+	{
+		this.map = new TiledMap(mapStream, mapFolder);
+		initMap();
 	}
 
 	/**
@@ -69,7 +81,14 @@ public abstract class Map
 	{
 		// Set up the map details
 		this.map = map;
-
+		initMap();
+	}
+	
+	/**
+	 * Store map details and set up collision map.
+	 */
+	protected void initMap()
+	{
 		this.mapHeight = this.map.getWidth() * this.tileWidth;
 		this.mapWidth = this.map.getHeight() * this.tileHeight;
 

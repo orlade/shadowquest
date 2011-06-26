@@ -1,5 +1,7 @@
 package net.piemaster.shadowquest.mapgen;
 
+import java.io.ByteArrayInputStream;
+
 import net.piemaster.shadowquest.world.DungeonMap;
 import net.piemaster.shadowquest.world.Map;
 
@@ -47,7 +49,7 @@ public abstract class MapFactory
 		currentGrid = insertEdges(width, height, currentGrid);
 
 		// Create an entrance
-		System.out.println("[MapFactory] Creating entrance...");
+//		System.out.println("[MapFactory] Creating entrance...");
 		int entranceX, entranceY;
 		do
 		{
@@ -57,14 +59,14 @@ public abstract class MapFactory
 		while (!isPassable(currentGrid[entranceY][entranceX]));
 		// Insert the entrance tile
 		currentGrid[entranceY][entranceX] = 17;
-		System.out.println("MapFactory] Entrance created @ [" + entranceX + ", " + entranceY + "]");
+//		System.out.println("MapFactory] Entrance created @ [" + entranceX + ", " + entranceY + "]");
 
 		int exitX = 0;
 		int exitY = 0;
 		if (hasExit)
 		{
 			// Create an exit
-			System.out.println("[MapFactory] Creating entrance...");
+//			System.out.println("[MapFactory] Creating entrance...");
 
 			do
 			{
@@ -74,7 +76,7 @@ public abstract class MapFactory
 			while (!isPassable(currentGrid[exitY][exitX]));
 			// Insert the entrance tile
 			currentGrid[exitY][exitX] = 17;
-			System.out.println("MapFactory] Exit created @ [" + exitX + ", " + exitY + "]");
+//			System.out.println("MapFactory] Exit created @ [" + exitX + ", " + exitY + "]");
 		}
 
 		// Create a raw map of the current grid
@@ -83,9 +85,13 @@ public abstract class MapFactory
 		// System.out.println(raw.toGraphicString());
 
 		// Pass it to be serialised
-		writeMap(raw, "assets/auto_dungeon.tmx");
-
-		return new DungeonMap("assets/auto_dungeon.tmx", "assets", entranceX, entranceY, exitX,
+//		writeMap(raw, "assets/auto_dungeon.tmx");
+		String mapString = XMLMapWriter.mapToString(raw);
+		ByteArrayInputStream mapStream = new ByteArrayInputStream(mapString.getBytes("UTF-8"));
+		
+//		return new DungeonMap("assets/auto_dungeon.tmx", "assets", entranceX, entranceY, exitX,
+//				exitY);
+		return new DungeonMap(mapStream, entranceX, entranceY, exitX,
 				exitY);
 	}
 
@@ -190,13 +196,13 @@ public abstract class MapFactory
 		return false;
 	}
 
-	/**
-	 * Serialises the map to a Slick-readable .tmx file
-	 * 
-	 * @throws Exception
-	 */
-	private static void writeMap(RawMap raw, String filename) throws Exception
-	{
-		XMLMapWriter.writeMap(raw, filename);
-	}
+//	/**
+//	 * Serialises the map to a Slick-readable .tmx file
+//	 * 
+//	 * @throws Exception
+//	 */
+//	private static void writeMap(RawMap raw, String filename) throws Exception
+//	{
+//		XMLMapWriter.writeMap(raw, filename);
+//	}
 }
